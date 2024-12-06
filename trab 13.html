@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+
+table, th, td {
+   
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #82aec8
+}
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 300%;
+            background-color:#a4aef0
+        }
+
+        button {
+            font-size: 150%;
+            background-color:black;
+            color:#a4aef0
+        }
+        img {
+            margin-top: 20px;
+            max-width: 300px;
+            height: auto;
+        }
+        #resultado {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+<body>
+   
+    <h1>Idades</h1>
+
+   <table style="width:100%">
+    <colgroup>
+        <col span="1" style="background-color: #0093e9">
+      </colgroup>
+   <tr>
+    <th style="width:30%">Idade</th>
+    <th>Classificação</th>
+   </tr>
+   <tr>
+    <td>0 a 2</td>
+    <td>Bebé</td>
+   </tr>
+   <tr>
+    <td>2 a 12</td>
+    <td>Criança</td>
+   </tr>
+   <tr>
+    <td>12 a 16</td>
+    <td>Adolescente</td>
+   </tr>
+   <tr>
+    <td>16 a 18</td>
+    <td>Jovem adulto</td>
+   </tr>
+   <tr>
+    <td>18 a 50</td>
+    <td>Adulto</td>
+   </tr>
+   <tr>
+    <td>50 a 65</td>
+   <td>Adulto de meia idade</td>
+   </tr>
+   <tr>
+    <td>65 a 100</td>
+    <td>Idoso</td>
+   </tr>
+   <tr>
+    <td>100 a 135</td>
+    <td>Lendário</td>
+   </tr>
+   <tr>
+    <td>Mais de 135</td>
+    <td>Imortal</td>
+   </tr>
+   </table>
+<br><br><br>
+
+
+   <form>
+    <label for="entrada1"style="font: size 150px";>Inserir idade</label>
+        <input type="number" id="entrada1" required>
+        <button type="button" onclick="mostrar()">mostrar</button>
+   </form>
+
+   <div id="resultado1">
+    <p id="mensagem"></p>
+    <img id="imagem" src="" alt="">
+</div>
+<br><br><br><br>
+
+       <script>
+         function mostrar() {
+           const idade = parseInt(document.getElementById('entrada1').value, 10);
+            const resultado = document.getElementById('resultado1');
+            const mensagem = document.getElementById('mensagem');
+            const imagem = document.getElementById('imagem');
+
+
+            if (idade <= 2 && idade > 0) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um bebé.`;
+                imagem.src = "imagens/bebe.avif";
+                imagem.alt = "Imagem de um bebé";
+
+            } else if (idade > 2 && idade < 12) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é uma criança.`;
+                imagem.src = "imagens/crianca.avif";
+                imagem.alt = "Imagem de uma criança";
+
+            } else if (idade >= 12 && idade <= 16) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um adolescente.`;
+                imagem.src = "imagens/adolescente.avif";
+                imagem.alt = "Imagem de um adolescente";
+
+            } else if (idade < 18 && idade > 16) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um jovem adulto.`;
+                imagem.src = "imagens/jovem..avif";
+                imagem.alt = "Imagem de um jovem adulto";
+
+            } else if (idade < 50 && idade >= 18) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um adulto.`;
+                imagem.src = "imagens/adulto.avif";
+                imagem.alt = "Imagem de um adulto";
+
+            } else if (idade <= 65 && idade >= 50) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um adulto de meia idade.`;
+                imagem.src = "imagens/meia.avif";
+                imagem.alt = "Imagem de um adulto de meia idade";
+            } else if (idade <= 100 && idade > 65) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é um idoso.`;
+                imagem.src = "imagens/idoso.avif";
+                imagem.alt = "Imagem de um idoso";
+
+            } else if (idade <= 135 && idade > 100) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é lendária.`;
+                imagem.src = "imagens/lendário.avif";
+                imagem.alt = "Imagem de lendário";
+
+            } else if (idade > 135) {
+                mensagem.textContent = `Uma pessoa com ${idade} anos de idade, é imortal.`;
+                imagem.src = "imagens/imortal.avif";
+                imagem.alt = "Imagem de alguém imortal";
+            } else {
+                document.getElementById('resultado1').textContent = `Uma pessoa com ${res1} anos de idade, não existe ou está morta.`;
+            }
+        }
+        
+       </script>
+
+</body>
+</html>
